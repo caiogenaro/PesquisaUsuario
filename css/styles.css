@@ -1,0 +1,40 @@
+body {
+  padding: 10px;
+}
+
+h1{
+  text-align: center;
+}
+.containerBusca{
+  display: flex;
+  flex-direction: row;
+}
+
+.inputPesquisa {
+  width: 80%;
+  padding: 10px;
+  margin: 5px;
+}
+
+.buttonPesquisa {  
+  max-height: 50px;
+  width: 80px;
+}
+
+.containerDados {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dados {
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin: 5px;
+  width: 50%;
+  min-height: 400px;
+  margin-top: 300px;
+}
