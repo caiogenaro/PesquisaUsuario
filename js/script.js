@@ -11,8 +11,7 @@ window.addEventListener("load", async () => {
   const dadosId = document.querySelector("#dadosId");
   const estatisticasId = document.querySelector("#estatisticasId");
   const pesquisaId = document.querySelector("#pesquisaId");
-  const buttonId = document.querySelector("#buttonId");
-  const buttonId2 = document.querySelector("#buttonId2");
+  const buttonId = document.querySelector("#buttonId");  
   await userFetch();
   buscarUser();
 });
@@ -36,7 +35,7 @@ async function userFetch() {
 function buscarUser() {
   pesquisaId.addEventListener("keyup", filterUser);
   buttonId.addEventListener("click", () => filterUserClick(pesquisaId.value.trim()));
-  pesquisaId.addEventListener("backspace", filterUser);
+  
   
 }
 
@@ -46,24 +45,21 @@ function filterUserClick(index){
   }
 }
 
-function filterUser(index) {
-
-  if(index.target.selectionEnd == 0){
-    return;
-  }
-  
-  console.log(index.target.selectionEnd);
+function filterUser(index) {  
+  console.log(index.target.value);
   const searchText = index.target.value.trim();
   const searchLength = searchText.length;
   const searchTextLowerCase = searchText.toLowerCase();
   const filterUsers = data.filter((user) => {
     return user.filterName.includes(searchTextLowerCase);
-  });
-  console.log(filterUsers.valueOf());
+  }); 
   if (filterUsers.length == 0) {
     showNoSearch();
   }
   showUsers(filterUsers);
+  if(index.target.value == ''){
+    showUsers(0);
+  }
 }
 
 function showNoSearch() {
@@ -72,7 +68,12 @@ function showNoSearch() {
 }
 
 function showUsers(index) {
-  
+
+  if(index == 0){
+    showNoSearch();
+    return
+  }
+
   const h2 = document.createElement("h2");
   const ul = document.createElement("ul");
   h2.textContent = index.length + "Usuario(s) Encontrado(s)";
