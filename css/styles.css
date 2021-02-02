@@ -23,9 +23,13 @@ h1{
 
 .containerDados {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;  
+  justify-content: center;
+}
+.foto{
+  border-radius: 50%;
+  width: 69px;
+  margin-right: 10px;  
 }
 
 .dados {
@@ -35,6 +39,9 @@ h1{
   padding: 10px;
   margin: 5px;
   width: 50%;
-  min-height: 400px;
-  margin-top: 300px;
+  min-height: 400px; 
+}
+
+ul li{
+  list-style-type: none;
 }
